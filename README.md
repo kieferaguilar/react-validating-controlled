@@ -1,6 +1,8 @@
 # react-validating-controlled
 React higher order components for controlled components and components requiring value validation.
 
+[![Build Status](https://circleci.com/gh/kieferaguilar/react-validating-controlled.svg?style=shield&circle-token=e08250f635d3197674c27bd841b1960ed993daa0)](https://circleci.com/gh/kieferaguilar/react-validating-controlled)
+
 ### Installation
 
 ```
