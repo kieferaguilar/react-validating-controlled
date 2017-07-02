@@ -1,6 +1,6 @@
 {
   "name": "react-validating-controlled",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React higher order components for controlled components and components requiring value validation",
   "repository": {
     "type": "git",
