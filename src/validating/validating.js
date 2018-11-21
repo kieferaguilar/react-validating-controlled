@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /**
  * Higher order component that adds value validation to the WrappedComponent
  * onBlur and onChange
- * 
+ *
  * @param {any} WrappedComponent Component to wrap with value validation
  * @returns {any}
  */
@@ -59,14 +59,16 @@ function validating(WrappedComponent) {
     }
   }
 
-  ValidatingComponent.propTypes = {
-    ...WrappedComponent.propTypes,
-    name: PropTypes.string,
-    onChange: PropTypes.func,
-    checkerOnChange: PropTypes.func.isRequired,
-    modifierOnChange: PropTypes.func.isRequired,
-    modifierOnBlur: PropTypes.func.isRequired
-  };
+  if (process.env.NODE_ENV !== "production") {
+    ValidatingComponent.propTypes = {
+      ...WrappedComponent.propTypes,
+      name: PropTypes.string,
+      onChange: PropTypes.func,
+      checkerOnChange: PropTypes.func.isRequired,
+      modifierOnChange: PropTypes.func.isRequired,
+      modifierOnBlur: PropTypes.func.isRequired
+    };
+  }
 
   ValidatingComponent.defaultProps = {
     ...WrappedComponent.defaultProps,
@@ -74,7 +76,7 @@ function validating(WrappedComponent) {
     modifierOnChange: s => s,
     modifierOnBlur: s => s
   }
-  
+
   return ValidatingComponent;
 }
 

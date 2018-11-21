@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 /**
  * Higher order component that adds value control to the WrappedComponent
- * 
+ *
  * @param {any} WrappedComponent Component to wrap with value control
  * @returns {any}
  */
@@ -43,18 +43,20 @@ function controlled(WrappedComponent) {
     }
   }
 
-  ControlledComponent.propTypes = {
-    ...WrappedComponent.propTypes,
-    initialValue: WrappedComponent.propTypes.value,
-    name: PropTypes.string,
-    onChange: PropTypes.func
-  };
+  if (process.env.NODE_ENV !== "production") {
+    ControlledComponent.propTypes = {
+      ...WrappedComponent.propTypes,
+      initialValue: WrappedComponent.propTypes.value,
+      name: PropTypes.string,
+      onChange: PropTypes.func
+    };
+  }
 
   ControlledComponent.defaultProps = WrappedComponent.defaultProps;
 
   ControlledComponent.emptyValue = WrappedComponent.emptyValue ?
     WrappedComponent.emptyValue : (() => "");
-  
+
   return ControlledComponent;
 }
 
